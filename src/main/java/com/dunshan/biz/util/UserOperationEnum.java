@@ -1,4 +1,4 @@
-package com.dunshan.biz.utils;
+package com.dunshan.biz.util;
 
 /**
  * @author xuxinwei

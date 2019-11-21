@@ -2,6 +2,7 @@ package com.dunshan.biz.service;
 
 import com.dunshan.biz.mapper.UserMapper;
 import com.dunshan.biz.model.User;
+import com.dunshan.common.log.SystemLog;
 import java.util.List;
 import java.util.Random;
 import javax.annotation.Resource;
@@ -26,10 +27,12 @@ public class UserService {
     return mapper.selectByPrimaryKey(id);
   }
 
+  @SystemLog
   public Boolean add(User user) {
     return mapper.insertSelective(user) > 0;
   }
 
+  @SystemLog
   public Boolean addMock() {
     Random random = new Random();
     Integer x = random.nextInt(10000);
@@ -41,10 +44,12 @@ public class UserService {
     return add(mockUser);
   }
 
+  @SystemLog
   public Boolean deleteById(String id) {
     return mapper.deleteByPrimaryKey(id) > 0;
   }
 
+  @SystemLog
   public Boolean update(User user) {
     if (StringUtils.isEmpty(user.getId())) {
       throw new RuntimeException("id can not be null！");

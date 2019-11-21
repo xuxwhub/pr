@@ -1,4 +1,4 @@
-package com.dunshan.common.config;
+package com.dunshan.biz.config;
 
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
