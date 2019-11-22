@@ -24,7 +24,9 @@ public class UserService {
   }
 
   public User getById(String id) {
-    return mapper.selectByPrimaryKey(id);
+    User u = new User();
+    u.setId(id);
+    return mapper.selectOne(u);
   }
 
   @SystemLog
@@ -46,7 +48,9 @@ public class UserService {
 
   @SystemLog
   public Boolean deleteById(String id) {
-    return mapper.deleteByPrimaryKey(id) > 0;
+    User u = new User();
+    u.setId(id);
+    return mapper.delete(u) > 0;
   }
 
   @SystemLog

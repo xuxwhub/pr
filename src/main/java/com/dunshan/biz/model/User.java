@@ -1,5 +1,6 @@
 package com.dunshan.biz.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -8,7 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Table(name = "t_user")
-public class User {
+public class User extends DynamicTableEntity implements Serializable {
     /**
      * 主键
      */
@@ -174,5 +175,18 @@ public class User {
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+            "id='" + id + '\'' +
+            ", userNumber='" + userNumber + '\'' +
+            ", userName='" + userName + '\'' +
+            ", orgId='" + orgId + '\'' +
+            ", email='" + email + '\'' +
+            ", mobile='" + mobile + '\'' +
+            ", createTime=" + createTime +
+            "} " + super.toString();
     }
 }
